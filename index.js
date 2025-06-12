@@ -73,6 +73,13 @@ mongoose
   )
   .catch((err) => console.log(err));
 
+
+
+// quick liveness probe
+app.get('/health', (_req, res) => {
+  res.json({ status: 'up' });
+});  
+
 app.get("/getMovies", getMovies);
 app.get("/getBanner", getBanner);
 app.get("/getVideo/:id", getVideo);
